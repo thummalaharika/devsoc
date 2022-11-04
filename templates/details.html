@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+ <br>
+
+ <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{rest.name}}</h3>
+ <br>
+
+    <table class="table table-dark table-striped">
+        <thead>
+
+          <tr>
+            <th scope="col">Item Name</th>
+            <th scope="col">Price</th>
+          </tr>
+
+        </thead>
+        
+        <tbody>
+            {% for item in menu %}
+          <tr>
+            
+            <td>{{item.food}}</td>
+            <td>{{item.price}}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+       
+      </table>
+
+      <br>
+
+
+<div class="commentbox" style="border-radius:10px;background-color: rgb(91, 91, 91); border-color:black; margin: 30px; height:300px; width:500px; margin-left:150px; align-items:center; align-content:center ">
+  
+    <h3 style="margin:20px;margin: top 20px; align-content:center; ">Comments</h3>
+    {% for commento in comment %}
+    <div class="comment">
+        {{commento.text}}
+    </div>
+    {% endfor  %}
+</div>
+      
+     
+
+
+
+
+<!-- {% for item in menu %}
+
+<p>{{item.food}} {{item.price}}</p><br>
+
+{% endfor %} -->
+
+
+
+{% endblock %}

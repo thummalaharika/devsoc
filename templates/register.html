@@ -1,0 +1,35 @@
+
+{% extends 'base.html' %}
+{% block content  %}
+
+{% if error %}
+<h3 style="color: red;">{{msg}}</h3>
+{% else %}
+<h3 style="color: green;">{{msg}}</h3>
+{% endif %}
+<form class="form-group" method="POST" action="register">
+    {% csrf_token %}
+
+
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" class="form-control" id="username" aria-describedby="emailHelp" placeholder="Enter Username" name="username" required>
+        </div>
+        <div class="form-group">
+          <label for="pwd"> Create Password</label>
+          <input type="password" class="form-control" id="pwd" placeholder="Password" name="pwd" required>
+        </div>
+        <div class="form-group">
+            <label for="pwd2">Confirm Password</label>
+            <input type="password" class="form-control" id="pwd2" placeholder="Password" name="pwd2" required>
+        </div>
+        <div>
+            Already Registered? <a href="{% url 'show_login' %} ">Login</a>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary">Create Account</button>
+      
+    
+</form>
+
+{% endblock %}
