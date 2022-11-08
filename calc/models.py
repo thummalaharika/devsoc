@@ -21,8 +21,8 @@ class menu(models.Model):
     price = models.IntegerField(default=100)
 
 class comment(models.Model):
-    name = models.CharField(max_length=250)
-    text = models.TextField(blank=True)
+    name = models.CharField(max_length=250, null = True, blank = True)
+    text = models.TextField(blank=True, null=True)
 
 
     

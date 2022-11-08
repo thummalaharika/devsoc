@@ -19,6 +19,10 @@ def home(request):
 def details(request, namee):
     a = restaurants.objects.get(name=namee)
     b = menu.objects.filter(name=namee)
+    commen= request.POST.get('comment')
+    name = request.POST.get('name')
+    co = comment(text=commen, name = name)
+    co.save()
     c = comment.objects.filter(name=namee)
     return render(request, 'details.html', {'rest':a, 'menu':b, 'comment':c})
     
@@ -33,8 +37,11 @@ def register(request):
     else:
         return render(request,'register.html',{'msg':"Password didn't match ",'error':True})
 
-
-    
+# def comment(request, namee):
+#     comment = request.POST.get('comment')
+#     comment.save()
+#     pl = comment.objects.filter(name=namee)
+#     return render(request, 'details.html',{'comments':pl})    
     
 def loginuser(request):
     username = request.POST.get('username')

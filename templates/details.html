@@ -39,7 +39,18 @@
     <div class="comment">
         {{commento.text}}
     </div>
+    
     {% endfor  %}
+    <form action="" method="POST">
+      {% csrf_token %}
+      <input type="text" class="form-control" id="name"  placeholder="restaurant name" name="name" required>
+
+      <input type="text" class="form-control" id="comment"  placeholder="add a comment" name="comment" required>
+      
+      <button type="submit" class="btn btn-primary">Add a Comment</button>
+
+    </form>
+
 </div>
       
      
